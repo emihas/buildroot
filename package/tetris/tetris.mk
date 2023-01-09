@@ -4,16 +4,19 @@
 #
 ################################################################################
 
-TETRIS_VERSION = e055834526a2d6c4f98d268f4f04724ba8b38161
-TETRIS_SITE = https://github.com/troglobit/tetris.git
-TETRIS_SITE_METHOD = git # Other methods like git,wget,scp,file etc. are also available.
+TETRIS_VERSION = 1.4.0
+TETRIS_SOURCE = tetris-1.4.0.tar.gz
+TETRIS_SITE = https://github.com/troglobit/tetris/releases/download/1.4.0
+#TETRIS_SITE_METHOD = wget # Other methods like git,wget,scp,file etc. are also available.
+TETRIS_LICENSE = GPL-3.0+
+TETRIS_LICENSE_FILES = COPYING
+TETRIS_INSTALL_STAGING = YES
 
 define TETRIS_BUILD_CMDS
-    $(MAKE) CC="$(TARGET_CC)" LD="$(TARGET_LD)" -C $(@D)
+    $(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D) all
 endef
 
 define TETRIS_INSTALL_TARGET_CMDS
-    $(INSTALL) -D -m 0755 $(@D)/tetris  $(TARGET_DIR)/usr/bin
+    $(INSTALL) -D -m 0755 $(@D)/tetris $(TARGET_DIR)/usr/bin
 endef
-
 $(eval $(generic-package))
