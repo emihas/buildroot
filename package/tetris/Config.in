@@ -1,0 +1,6 @@
+config BR2_PACKAGE_TETRIS
+    bool "tetris"
+    help
+        tetris package.
+
+        https://github.com/troglobit/tetris
