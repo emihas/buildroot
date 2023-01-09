@@ -5,7 +5,7 @@
 ################################################################################
 
 HELLO_VERSION = 1.0
-HELLO_SITE = ./package/hello/src
+HELLO_SITE = ./src/hello
 HELLO_SITE_METHOD = local
 
 define HELLO_BUILD_CMDS
